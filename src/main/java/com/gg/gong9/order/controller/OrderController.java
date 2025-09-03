@@ -7,7 +7,7 @@ import com.gg.gong9.order.controller.dto.OrderRequest;
 import com.gg.gong9.order.controller.dto.OrderResponse;
 import com.gg.gong9.order.entity.Order;
 import com.gg.gong9.order.service.OrderService;
-import com.gg.gong9.order.service.concurrency.redis_lau.OrderLauScriptService;
+//import com.gg.gong9.order.service.concurrency.redis_lau.OrderLauScriptService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -21,14 +21,14 @@ import java.util.List;
 public class OrderController {
 
     private final OrderService orderService;
-    private final OrderLauScriptService orderLauScriptService;
+    //private final OrderLauScriptService orderLauScriptService;
 
     //주문 생성
     @PostMapping("/kafka")
     public ResponseEntity<String> createOrder(@RequestBody OrderRequest request,
                                                 @AuthenticationPrincipal CustomUserDetails userPrincipal){
         Long userId = userPrincipal.getUser().getId();
-        orderLauScriptService.tryCreateOrderWithRedisWithKafka(userId, request);
+        //orderLauScriptService.tryCreateOrderWithRedisWithKafka(userId, request);
         return ResponseEntity.ok("주문이 생성되었습니다.");
     }
 
