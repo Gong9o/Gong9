@@ -29,7 +29,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation('org.springframework.boot:spring-boot-starter-data-redis') {
+        exclude group: 'org.redisson', module: 'redisson'
+    }
 
     //jwt
     implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
@@ -57,7 +59,7 @@ dependencies {
     implementation platform("org.springframework.cloud:spring-cloud-dependencies:2023.0.4")
 
     //Redisson
-    implementation 'org.redisson:redisson-spring-boot-starter:3.24.3'
+   // implementation 'org.redisson:redisson-spring-boot-starter:3.24.3'
 
     //Kafka
     implementation 'org.springframework.kafka:spring-kafka'
@@ -76,7 +78,7 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
 
-    implementation 'org.redisson:redisson-spring-boot-starter:3.30.0'
+    //implementation 'org.redisson:redisson-spring-boot-starter:3.30.0'
 
     implementation 'org.springframework.kafka:spring-kafka'
 
