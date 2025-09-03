@@ -13,7 +13,7 @@ public class RedissonConfig {
     @Bean
     public RedissonClient redissonClient() {
         Config config = new Config();
-        config.useSingleServer().setAddress(REDISSON_HOST_PREFIX + "localhost:6379");
+        config.useSingleServer().setAddress(REDISSON_HOST_PREFIX + "redis-eb.btpay7.ng.0001.apn2.cache.amazonaws.com:6379");
         return Redisson.create(config);
     }
 }
