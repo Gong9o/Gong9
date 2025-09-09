@@ -48,6 +48,8 @@
 
 
 ## 🗂️ ERD
+<img width="1672" height="1152" alt="Copy of GonGo" src="https://github.com/user-attachments/assets/d7552863-5fde-4508-8786-d3e2d8b12cb2" />
+
 
 ## 🏗️ 시스템 아키텍처
 
