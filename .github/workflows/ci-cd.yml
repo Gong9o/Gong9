@@ -44,7 +44,7 @@ jobs:
   deploy-eb:
     needs: build
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main') || (github.event_name == 'workflow_dispatch')
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main')
     concurrency: # 마지막 커밋만 배포
       group: eb-deploy-${{ github.ref_name }}
       cancel-in-progress: true
@@ -62,13 +62,6 @@ jobs:
           mv bundle/*.jar bundle/application.jar
           echo "web: java -jar application.jar" > bundle/Procfile
           cd bundle && zip -r ../deploy.zip . && cd ..
-
-      - name: AWS 로그인 (깃헙 시크릿 사용)
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region:            ${{ secrets.AWS_REGION }}
 
       - name: 실제 배포
         uses: einaregilsson/beanstalk-deploy@v22
