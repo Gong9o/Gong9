@@ -91,5 +91,21 @@
 
 
 ## 🔁 시퀀스 다이어그램
+**1.회원**
 
+**회원가입/로그인**
+
+- Spring Security + JWT + SMTP 기반 인증
+- JWT를 활용한 AccessToken 관리
+- Redis와 쿠키를 활용한 RefreshToken 관리
+
+**회원가입**
+<img width="1000" height="901" alt="image" src="https://github.com/user-attachments/assets/63d5a94f-a027-4715-8d4f-395e87fda4cc" />
+
+**로그인**
+<img width="1000" height="901" alt="image" src="https://github.com/user-attachments/assets/afd9039d-62bf-4333-b77a-d99a6ab2f4fa" />
+
+**2. 주문**
+
+<img width="1212" height="648" alt="image" src="https://github.com/user-attachments/assets/63ec8316-c43d-4ceb-afe1-bd4d7a57d3cf" />
 
