@@ -44,7 +44,7 @@ jobs:
   deploy-eb:
     needs: build
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main')
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main') || (github.event_name == 'workflow_dispatch')
     concurrency: # 마지막 커밋만 배포
       group: eb-deploy-${{ github.ref_name }}
       cancel-in-progress: true
@@ -73,6 +73,8 @@ jobs:
       - name: 실제 배포
         uses: einaregilsson/beanstalk-deploy@v22
         with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: ${{ secrets.EB_APPLICATION_NAME }}
           environment_name: ${{ secrets.EB_ENVIRONMENT_NAME }}
           version_label: v-${{ github.run_number }}-${{ github.sha }}
