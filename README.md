@@ -99,13 +99,27 @@
 - JWT를 활용한 AccessToken 관리
 - Redis와 쿠키를 활용한 RefreshToken 관리
 
+
 **회원가입**
 <img width="1000" height="901" alt="image" src="https://github.com/user-attachments/assets/63d5a94f-a027-4715-8d4f-395e87fda4cc" />
 
+---
 **로그인**
 <img width="1000" height="901" alt="image" src="https://github.com/user-attachments/assets/afd9039d-62bf-4333-b77a-d99a6ab2f4fa" />
 
+***
 **2. 주문**
 
-<img width="1212" height="648" alt="image" src="https://github.com/user-attachments/assets/63ec8316-c43d-4ceb-afe1-bd4d7a57d3cf" />
+**주문 대규모 트래픽 환경 대응**
+- 주문 재고 동시성 관리
+  - 낙관적/비관적 락, Redisson 락을 적용하고 성능테스트 진행
+  - 높은 트래픽 환경에서 락 사용 시 성능 저하가 발생하여 Redis Lua Script를 활용한 원자적 처리로 개선
+- Redis와 DB를 연동하여 재고 차감 및 중복 주문 방지
+- 주문 실패 시 Redis와 DB 상태 롤백, 재시도를 통한 안정적 정합성 확보
+- Sorted Set 기반 워커로 만료된 예약만 선별 처리(O(log N))
+- Outbox 패턴과 Kafka 멱등성 처리로 비동기 메시지 안정화
+- 외부 API 호출 지연 최소화
 
+<img width="1908" height="1281" alt="image" src="https://github.com/user-attachments/assets/857a2c00-b4cb-4fad-96f3-820235f5da7b" />
+
+---
