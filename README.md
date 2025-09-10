@@ -48,11 +48,11 @@
 
 
 ## 🗂️ ERD
-<img width="1672" height="1152" alt="Copy of GonGo" src="https://github.com/user-attachments/assets/d7552863-5fde-4508-8786-d3e2d8b12cb2" />
+<img width="2070" height="1152" alt="Image" src="https://github.com/user-attachments/assets/0c24b602-05bb-4945-a43c-05a1918ae0d4" />
 
 
 ## 🏗️ 시스템 아키텍처
-
+<img width="2596" height="1296" alt="Image" src="https://github.com/user-attachments/assets/bae9543c-0cad-4677-af4d-f1843e875fac" />
 
 ## 📋 기능 목록
 **사용자 관련**
